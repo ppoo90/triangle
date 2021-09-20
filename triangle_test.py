@@ -16,21 +16,23 @@ class TriangleTest(unittest.TestCase):
         self.assertFalse( is_triangle(2, 1, 1) )   # borderline case
         self.assertFalse( is_triangle(6, 10, 4) )  # borderline case
         self.assertFalse( is_triangle(6, 20, 4) )
+        self.assertFalse(is_triangle(5, 1, 1))
 
     def test_invalid_argument_raises_exception(self):
         """any non-positive argument should raise ValueError"""
         with self.assertRaises(ValueError):
+            b2 = is_triangle(1, 0, 2)  # this should raise exception
             b1 = is_triangle(-1, 2, 2)
-            b2 = is_triangle( 1, 0, 2)
 
         with self.assertRaises(ValueError):
-            b1 = is_triangle( 1, -1, 2)
-            b2 = is_triangle( 1,  0, 2)
+            b2 = is_triangle(1,  0, 2)
+            b1 = is_triangle(1, -1, 2)
 
         with self.assertRaises(ValueError):
-            b1 = is_triangle( 1, 2, -1)
-            b2 = is_triangle( 1, 2,  0)
+            b1 = is_triangle(1, 2, -1)
+            b2 = is_triangle(1, 2,  0)
 
         with self.assertRaises(ValueError):
             b1 = is_triangle( -1, -1, -1)
             b2 = is_triangle( 0, 0, 0)
+

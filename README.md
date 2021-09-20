@@ -21,7 +21,7 @@ Use code coverage to find untested code and a problem with the tests.
 
 4. Is there any part of the code under test (`trinagle.py`) that was not tested?
 
-   Write the Line Numbers here: [          ]
+   Write the Line Numbers here: [ 22       ]
 
 5. Modify the tests so that all lines of the code are tested.
 
@@ -32,11 +32,11 @@ Use code coverage to find untested code and a problem with the tests.
    ```
 
 7. What lines in the **unit test code** were not executed?     
-   Write the Line Numbers: [                  ]
+   Write the Line Numbers: [ 33, 37 ]
 
 8. Normally, **all** the lines of test code should be executed.  When some part of test code is not executed it may indicate a problem with the tests.  Explain the problem in the unit test code. (write you answer below).
 
-   Answer:
+   Answer: because some unittest code has an error
 
 
 
