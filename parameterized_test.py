@@ -6,7 +6,9 @@ class TriangleTest(unittest.TestCase):
         (1, 1, 1),
         (3, 4, 5),
         (3, 4, 6),
-        (8, 10, 12)
+        (8, 10, 12),
+        (100, 101, 200),
+        (0.9, 1.0, 1.1)
     ]
 
     def test_valid_triangle(self):
@@ -16,12 +18,19 @@ class TriangleTest(unittest.TestCase):
                 msg = f"side lengths ({a},{b},{c})"
                 self.assertTrue(is_triangle(a, b, c), msg)
 
+    not_triangles = [
+        (21, 10, 10),
+        (2, 1, 1),
+        (6, 10, 4),
+        (6, 20, 4),
+    ]
+
     def test_not_triangle(self):
-        self.assertFalse( is_triangle(21, 10, 10) )
-        self.assertFalse( is_triangle(2, 1, 1) )   # borderline case
-        self.assertFalse( is_triangle(6, 10, 4) )  # borderline case
-        self.assertFalse( is_triangle(6, 20, 4) )
-        self.assertFalse(is_triangle(5, 1, 1))
+        """loop over each set of test data"""
+        for a, b, c in self.not_triangles:
+            with self.subTest():
+                msg = f"side lengths ({a},{b},{c})"
+                self.assertFalse(is_triangle(a, b, c), msg)
 
     def test_invalid_argument_raises_exception(self):
         """any non-positive argument should raise ValueError"""
